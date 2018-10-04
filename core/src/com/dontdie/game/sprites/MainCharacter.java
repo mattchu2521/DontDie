@@ -22,11 +22,16 @@ public class MainCharacter {
 
 
     public void update(float dt){    /// changing coridnates
-
-        velocity.add(0, GRAVITY, 0);
+        if(postions.y > 0) {
+            velocity.add(0, GRAVITY, 0);
+        }
         velocity.scl(dt);
         postions.add(0, velocity.y, 0);
 
+        if(postions.y < 0){
+            postions.y = 0;
+        }
+        
         velocity.scl(1/dt);
     }
     //// simple getters
